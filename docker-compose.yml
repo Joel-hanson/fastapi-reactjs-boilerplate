@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  frontend:
+    container_name: frontend
+    build:
+      dockerfile: frontend/Dockerfile
+      context: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app/frontend
+      - ./frontend/node_modules:/app/node_modules
+    command: "npm start"
+
+  backend:
+    container_name: backend
+    build:
+      dockerfile: backend/Dockerfile
+      context: .
+    env_file: ./backend/.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+    stdin_open: true  # for testing
+    tty: true  # for testing
+    command: "python main.py"
+    depends_on:
+      - frontend
+
+volumes:
+  nodemodules:
