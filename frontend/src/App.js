@@ -1,17 +1,13 @@
 import './App.css';
-import { PomodoroTimer } from './components/PomordoroTimer';
-import { Tasks } from './components/Tasks';
+import Container from '@material-ui/core/Container';
+import PersistentDrawerLeft from './pages/mainpage';
 
 function App() {
   return (
-    <div className="app">
-      <header className="app-header">
-        header
-      </header>
-      <PomodoroTimer>
-      </PomodoroTimer>
-      <Tasks>
-      </Tasks>
+    <div className="app" style={{height: "100vh"}}>
+      {/* <Container maxWidth="md" > */}
+        <PersistentDrawerLeft></PersistentDrawerLeft>
+      {/* </Container> */}
     </div>
   );
 }
