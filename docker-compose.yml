@@ -9,8 +9,8 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend:/app/frontend
-      - nodemodules:/app/node_modules
-    command: "npm start"
+      - nodemodules:/app/frontend/node_modules
+    command: "npm run start"
 
   backend:
     container_name: backend
