@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(2),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -148,7 +148,7 @@ export default function PersistentDrawerLeft(props) {
             [classes.appBarShift]: open,
           })}
         >
-          <Toolbar>
+          <Toolbar disableGutters={true}>
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -163,7 +163,7 @@ export default function PersistentDrawerLeft(props) {
               <IconButton aria-label="search" color="inherit">
                 <SearchIcon />
               </IconButton>
-              <IconButton aria-label="notification" color="inherit">
+              <IconButton aria-label="notification" color="inherit" style={{paddingRight: "0px"}}>
                 <NotificationsIcon />
               </IconButton>
             </div>
@@ -179,8 +179,9 @@ export default function PersistentDrawerLeft(props) {
             {['Daily meeting with team', 'Pay rent', 'Check emails', 'Lunch with Nirmal', 'Meditation'].map((text, index) => (
                 <FormControlLabel
                   index={index}
-                  control={<Checkbox icon={<RadioButtonUncheckedIcon />} checkedIcon={<CheckCircleIcon />} name="checked" />}
+                  control={<Checkbox icon={<RadioButtonUncheckedIcon style={{color: 'white'}}/>} checkedIcon={<CheckCircleIcon style={{color: "#041955"}}/>} name="checked" />}
                   label={text}
+                  style={{margin: "4px 0", background: '#3450A1', color: 'white', borderRadius: "16px", padding: "4px"}}
                 />
                 ))}
             </FormGroup>
