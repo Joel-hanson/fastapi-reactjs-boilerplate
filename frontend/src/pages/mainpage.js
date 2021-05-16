@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
   },
   drawer: {
-    width: drawerWidth,
+    width: 0,
     flexShrink: 0,
   },
   drawerPaper: {
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: -drawerWidth,
+    // marginLeft: -drawerWidth,
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -143,7 +143,7 @@ export default function PersistentDrawerLeft(props) {
       <ElevationScroll {...props}>
         <AppBar
           color="transparent"
-          position="fixed"
+          position="relative"
           className={clsx(classes.appBar, {
             [classes.appBarShift]: open,
           })}
@@ -168,6 +168,23 @@ export default function PersistentDrawerLeft(props) {
               </IconButton>
             </div>
           </Toolbar>
+          <main
+            className={clsx(classes.content, {
+              [classes.contentShift]: open,
+            })}
+            // style={{height: "100%"}}
+          >
+            {/* <div className={classes.drawerHeader} /> */}
+            <FormGroup style={{margin: "40px 0", width: "100%", whiteSpace: 'nowrap'}}>
+            {['Daily meeting with team', 'Pay rent', 'Check emails', 'Lunch with Nirmal', 'Meditation'].map((text, index) => (
+                <FormControlLabel
+                  index={index}
+                  control={<Checkbox icon={<RadioButtonUncheckedIcon />} checkedIcon={<CheckCircleIcon />} name="checked" />}
+                  label={text}
+                />
+                ))}
+            </FormGroup>
+          </main>
         </AppBar>
       </ElevationScroll>
       <Drawer
@@ -194,23 +211,7 @@ export default function PersistentDrawerLeft(props) {
           ))}
         </List>
       </Drawer>
-      <main
-        className={clsx(classes.content, {
-          [classes.contentShift]: open,
-        })}
-        // style={{height: "100%"}}
-      >
-        {/* <div className={classes.drawerHeader} /> */}
-        <FormGroup style={{margin: "40px 0", width: "100%"}}>
-        {['Daily meeting with team', 'Pay rent', 'Check emails', 'Lunch with Nirmal', 'Meditation'].map((text, index) => (
-            <FormControlLabel
-              index={index}
-              control={<Checkbox icon={<RadioButtonUncheckedIcon />} checkedIcon={<CheckCircleIcon />} name="checked" />}
-              label={text}
-            />
-            ))}
-        </FormGroup>
-      </main>
+      
       <SpeedDial
         ariaLabel="SpeedDial openIcon example"
         className={classes.speedDial}

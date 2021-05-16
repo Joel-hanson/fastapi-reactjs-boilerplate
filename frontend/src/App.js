@@ -4,12 +4,12 @@ import PersistentDrawerLeft from './pages/mainpage';
 
 function App() {
   return (
-    <div className="app" style={{height: "100vh"}}>
-      {/* <Container maxWidth="md" > */}
+    <div className="app" style={{height: "100vh", width: "100%"}}>
+      <Container maxWidth="md" >
         <PersistentDrawerLeft></PersistentDrawerLeft>
-      {/* </Container> */}
+      </Container>
     </div>
   );
 }
-
 export default App;
+
