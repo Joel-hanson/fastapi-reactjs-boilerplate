@@ -164,3 +164,4 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 .vscode
+data
